@@ -1,0 +1,575 @@
+.cont {
+
+    height: 100vh;
+
+    width: 100%;
+
+}
+
+header {
+
+    height: 7%;
+
+    width: 100%;
+
+    margin: 0;
+
+}
+
+nav {
+
+    background-color: white;
+
+    border-bottom: 2px solid black;
+
+    width: 100%;
+
+    height: 7%;
+
+    position: fixed;
+
+    display: flex;
+
+    z-index: 100;
+
+}
+
+.cont_titulo {
+
+    display: flex;
+
+    justify-content: start;
+
+    align-items: center;
+
+    width: 60%;
+
+    height: 100%;
+
+}
+
+.cont_titulo p {
+
+    margin-left: 15px;
+
+}
+
+.cont_login {
+
+    display: flex;
+
+    justify-content: end;
+
+    align-items: center;
+
+    width: 40%;
+
+    height: 100%;
+
+}
+
+.cont_login button {
+
+    margin: 10px;
+
+}
+
+main {
+
+    display: flex;
+
+    flex-direction: row;
+
+    height: 93.7%;
+
+}
+
+.cont_menu {
+
+    width: 20%;
+
+    height: 100%;
+
+    background-color: rgb(52, 120, 221);
+
+}
+
+.menu {
+
+    position: fixed;
+
+    top: 7%;
+
+    width: 20%;
+
+    height: 93%;
+
+    background-color: rgb(52, 120, 221);
+
+}
+
+.menu div {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    width: 100%;
+
+    color: white;
+
+    background-color: rgb(52, 120, 221);
+
+    border: none;
+
+    font-size: 20px;
+
+}
+
+.menu div svg {
+
+    z-index: 200;
+
+    margin-left: 20px;
+
+    margin-right: 5px;
+
+    color: white;
+
+}
+
+.menu div:hover {
+
+    background-color: blue;
+
+}
+
+.salir {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+}
+
+
+/* INICIO */
+
+.cont_inicio {
+
+    width: 80%;
+
+    height: 100%;
+
+    padding: 0px 20px;
+
+}
+
+.header_tarjetas {
+
+    width: 100%;
+
+}
+
+.titulo p {
+
+    font-size: 25px;
+
+}
+
+
+/* MAS INFO */
+
+.cont_menu_login {
+
+    position: fixed;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    z-index: 300;
+
+    width: 100%;
+
+    height: 100%;
+
+    top: 0;
+
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+.menu_login {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    width: 50%;
+
+    height: 50%;
+
+    background-color: white;
+
+    border: 2px solid rgb(52, 120, 221);
+
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.629);
+
+    margin: 0px 20px;
+
+    margin-top: 7%;
+
+    border-radius: 10px;
+
+    padding: 5px;
+
+}
+
+.cont_header_menu {
+
+    border-radius: 10px;
+
+    width: 100%;
+
+    margin: 0;
+
+}
+
+.cont_b_cerrar {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: end;
+
+    align-items: center;
+
+}
+
+.cont_b_cerrar button {
+
+    width: 5%;
+
+    height: 30px;
+
+    margin: 0px 5px;
+
+}
+
+.cont_mas_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.mas_info {
+
+    width: 80%;
+
+    height: 90%;
+
+    margin: 30px;
+
+}
+
+.cont_b_volver button {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 17%;
+
+    height: 50px;
+
+    border-radius: 7px;
+
+    color: rgb(52, 120, 221);
+
+    font-size: 22px;
+
+    padding-right: 20px;
+
+    border: 2px solid rgba(52, 120, 221, 0.4);
+
+}
+
+.titulo_m_i p {
+
+    font-size: 28px;
+
+    color: rgba(52, 120, 221);
+
+}
+
+.cont_datos {
+
+    border: 2px solid black;
+
+    width: 100%;
+
+    height: 55vh;
+
+}
+
+.datos {
+
+    margin: 20px;
+
+}
+
+.d_div {
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    margin-bottom: 0px;
+
+}
+
+.d_div svg {
+
+    color: rgba(52, 120, 221);
+
+}
+
+.d_cont_descripcion {
+
+    flex-direction: column;
+
+}
+
+.p_datos {
+
+    margin-left: 10px;
+
+    color: rgba(52, 120, 221);
+
+    margin-right: 5px;
+
+    font-size: 18px;
+
+}
+
+.descripcion {
+
+    margin-top: 0px;
+
+}
+
+.Descripcion p {
+
+    margin: 0 5%;
+
+}
+
+
+/* CREAR EVENTO */
+
+.cont_crear {
+
+    width: 80%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.crear_evento {
+    
+
+    width: 70%;
+
+    padding: 30px;
+
+    border: 2px solid rgb(52, 120, 221);
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.399);
+
+}
+
+.titulo_crear {
+
+    width: 100%;
+    color: rgb(52, 120, 221);
+    text-align: center;
+
+    font-size: 28px;
+
+}
+.titulo_crear p{
+    border-bottom: 1px solid rgb(52, 120, 221);
+}
+
+.dato_crear {
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+.dato_crear label {
+
+    width: 150px;
+    color: rgb(52, 120, 221);
+    font-size: 18px;
+
+}
+
+.dato_crear input {
+
+    width: 60%;
+
+    height: 30px;
+
+}
+
+.dato_crear textarea {
+
+    width: 60%;
+
+    height: 100px;
+
+    resize: none;
+
+}
+
+.boton_crear {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    
+
+}
+
+.boton_crear button {
+
+    width: 30%;
+    margin: 0 5%;
+    height: 45px;
+    color: white;
+    border: 2px solid rgb(52, 120, 221);
+    font-size: 18px;
+    border-radius: 7px;
+    background-color: rgb(52, 120, 221);
+
+}
+.boton_crear  button:hover{
+    scale: 1.1;
+}
+
+
+/* MODIFICAR */
+
+.cont_modificar {
+
+    width: 80%;
+
+    height: 100%;
+
+    padding: 0px 20px;
+
+}
+
+.buscador_modificar {
+
+    width: 100%;
+
+    height: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+}
+
+.buscador_modificar input {
+
+    width: 60%;
+
+    height: 35px;
+
+    font-size: 16px;
+
+    padding-left: 10px;
+
+}
+
+.buscador_modificar button {
+
+    width: 45px;
+
+    height: 41px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.buscador_modificar button svg {
+
+    width: 22px;
+
+    height: 22px;
+
+}
+
+.lista_modificar {
+
+    width: 100%;
+
+}
+
+.lista_modificar .titulo p {
+
+    font-size: 25px;
+
+}
+
+.tarjetas_modificar {
+
+    width: 100%;
+
+}

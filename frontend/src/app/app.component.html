@@ -1,0 +1,505 @@
+<!-- PÁGINA NORMAL -->
+<div *ngIf="!admin">
+
+  <div class="cont">
+
+    <header>
+      <nav>
+
+        <div class="cont_titulo">
+          <svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 16 16"
+     id="School--Streamline-Font-Awesome"
+     height="16"
+     width="16">
+
+  <desc>
+    School Streamline Icon: https://streamlinehq.com
+  </desc>
+
+  <path
+    transform="translate(0 ) "
+    d="M8.436100000000001 1.8603000000000003c-0.2646 -0.1764 -0.6076 -0.1764 -0.8722 0L4.23435 4.08H1.336c-0.64925 0 -1.176 0.52675 -1.176 1.176v7.840000000000001c0 0.64925 0.52675 1.176 1.176 1.176h5.096V11.920000000000002c0 -0.8648500000000001 0.70315 -1.568 1.568 -1.568s1.568 0.70315 1.568 1.568v2.352h5.096c0.64925 0 1.176 -0.52675 1.176 -1.176v-7.840000000000001c0 -0.64925 -0.52675 -1.176 -1.176 -1.176H11.76565L8.436100000000001 1.8603000000000003ZM2.5120000000000005 6.4319999999999995h0.784c0.2156 0 0.392 0.1764 0.392 0.392v1.568c0 0.2156 -0.1764 0.392 -0.392 0.392h-0.784c-0.2156 0 -0.392 -0.1764 -0.392 -0.392v-1.568c0 -0.2156 0.1764 -0.392 0.392 -0.392Zm9.8 0.392c0 -0.2156 0 -0.392 0.392 -0.392h0.784c0.2156 0 0.392 0.1764 0.392 0.392v1.568c0 0.2156 -0.1764 0.392 -0.392 0.392h-0.784c0 -0.2156 -0.392 -0.1764 -0.392 -0.392v-1.568Zm-9.8 2.744h0.784c0.2156 0 0.392 0.1764 0.392 0.392v1.568c0 0.2156 -0.1764 0.392 -0.392 0.392h-0.784c-0.2156 0 -0.392 -0.1764 -0.392 -0.392V9.96c0 -0.2156 0.1764 -0.392 0.392 -0.392Zm9.8 0.392c0 -0.2156 0 -0.392 0.392 -0.392h0.784c0.2156 0 0.392 0.1764 0.392 0.392v1.568c0 0.2156 -0.1764 0.392 -0.392 0.392h-0.784c0 -0.2156 -0.392 -0.1764 -0.392 -0.392V9.96ZM5.844 6.04c0 -1.6596900000000003 1.7966674999999999 -2.6969950000000004 3.2340000000000004 -1.8671500000000004 0.6670675 0.38513250000000004 1.078 1.096885 1.078 1.8671500000000003 0 1.6596900000000003 -1.7966674999999999 2.6969950000000004 -3.2340000000000004 1.8671500000000004 -0.6670675 -0.38513250000000004 -1.078 -1.096885 -1.078 -1.8671500000000003ZM8 4.864000000000001c-0.2156 0 -0.392 0.1764 -0.392 0.392v0.784c0 0.2156 0.1764 0.392 0.392 0.392h0.784c0.2156 0 0.392 -0.1764 0.392 -0.392s-0.1764 -0.392 -0.392 -0.392h-0.392v-0.392c0 -0.2156 -0.1764 -0.392 -0.392 -0.392Z"
+    fill="#ffffff"
+    stroke-width="0.025">
+  </path>
+
+</svg>
+          <p>Sistema de gestion de actividades</p>
+        </div>
+
+      </nav>
+    </header>
+
+
+    <!-- MENU LOGIN -->
+    <div class="cont_menu_login" *ngIf="contador == 1">
+
+      <div class="menu_login">
+
+        <div class="cont_header_menu">
+
+          <div class="cont_b_cerrar">
+            <button class="b_cerrar_m" (click)="cerrar_menu()">
+              X
+            </button>
+          </div>
+
+          <div class="titulo_menu">
+            <p>Iniciar secion como autorizado</p>
+          </div>
+
+        </div>
+
+        <div class="d_menu">
+
+          <input
+            type="text"
+            [(ngModel)]="usuario"
+            placeholder="Ingresar Usuario">
+
+        </div>
+
+        <div class="d_menu">
+
+          <input
+            type="password"
+            [(ngModel)]="contrasena"
+            placeholder="Ingresar Contraseña">
+
+        </div>
+
+        <div class="cont_b_menu">
+
+          <button (click)="iniciarSesion()">
+            Ingresar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MENU PRINCIPAL -->
+    <main>
+
+      <div class="cont_menu">
+
+        <div class="menu">
+
+
+          <!-- INICIO -->
+          <div class="inico" (click)="abrirInicio()">
+
+            <!-- SVG INICIO -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+
+            </svg>
+
+            <p>Inicio</p>
+
+          </div>
+
+
+          <!-- BUSCAR -->
+          <div class="buscar" (click)="abrirBuscar()">
+
+            <!-- SVG BUSCAR -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+              <path d="M3 10a7 7 0 1 0 14 0a7 7 0 0 0 -14 0" />
+
+              <path d="M21 21l-6 -6" />
+
+            </svg>
+
+            <p>Buscar</p>
+
+          </div>
+
+
+          <!-- AUTORIZADO -->
+          <div class="autorizado" (click)="abrir_menu()">
+
+            <!-- SVG AUTORIZADO -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+              <path d="M12 12a5 5 0 1 0 0 -10a5 5 0 0 0 0 10" />
+
+              <path d="M4 22a8 8 0 0 1 16 0" />
+
+            </svg>
+
+            <p>Autorizado</p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- LISTADO DE ACTIVIDADES -->
+      <div class="cont_tarjetas" *ngIf="i == 0">
+
+        <div class="header_tarjetas">
+
+          <div class="titulo">
+            <p>Listado de actividades</p>
+          </div>
+
+        </div>
+
+        <app-tarjeta
+  modo="inicio"
+  (Dato)="recibirDato($event)">
+</app-tarjeta>
+
+      </div>
+
+
+      <!-- BUSCAR ACTIVIDAD -->
+      <div class="cont_buscar" *ngIf="i == 2">
+
+        <div class="buscador">
+
+          <input
+            type="text"
+            placeholder="Buscar evento"
+            [(ngModel)]="busqueda"
+            (keyup.enter)="buscarEvento()">
+
+          <button (click)="buscarEvento()">
+
+            <!-- SVG BUSCAR -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+              <path d="M3 10a7 7 0 1 0 14 0a7 7 0 0 0 -14 0" />
+
+              <path d="M21 21l-6 -6" />
+
+            </svg>
+
+          </button>
+
+        </div>
+
+
+<div class="header_tarjetas">
+
+  <div class="titulo">
+
+    <p *ngIf="eventosBuscados === null">
+      Listado de actividades
+    </p>
+
+    <p *ngIf="eventosBuscados !== null">
+      Resultados de búsqueda
+    </p>
+
+  </div>
+
+</div>
+
+
+        <app-tarjeta
+  modo="buscar"
+  [eventosBuscados]="eventosBuscados"
+  (Dato)="recibirDato($event)">
+</app-tarjeta>
+
+      </div>
+
+
+      <!-- MAS INFORMACION -->
+      <div class="cont_mas_info" *ngIf="i == 1">
+
+        <div class="mas_info">
+
+          <div class="header_mas_info">
+
+            <div class="cont_b_volver">
+
+              <button
+                class="b_volver"
+                (click)="cerrar()">
+
+                <!-- SVG VOLVER -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                  <path d="M5 12l14 0" />
+
+                  <path d="M5 12l4 4" />
+
+                  <path d="M5 12l4 -4" />
+
+                </svg>
+
+                Volver
+
+              </button>
+
+            </div>
+
+
+            <div class="titulo_m_i">
+
+              <p>{{ eventoSeleccionado?.nombre }}</p>
+
+            </div>
+
+          </div>
+
+
+          <div class="cont_datos">
+
+            <div class="datos">
+
+
+              <!-- FECHA -->
+              <div class="d_div">
+
+                <!-- SVG FECHA -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                  <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+
+                  <path d="M16 3v4" />
+
+                  <path d="M8 3v4" />
+
+                  <path d="M4 11h16" />
+
+                  <path d="M7 14h.013" />
+
+                  <path d="M10.01 14h.005" />
+
+                  <path d="M13.01 14h.005" />
+
+                  <path d="M16.015 14h.005" />
+
+                  <path d="M13.015 17h.005" />
+
+                  <path d="M7.01 17h.005" />
+
+                  <path d="M10.01 17h.005" />
+
+                </svg>
+
+                <p class="p_datos">Fecha:</p>
+
+                <p>{{ eventoSeleccionado?.fecha }}</p>
+
+              </div>
+
+
+              <!-- HORARIO -->
+              <div class="d_div">
+
+                <!-- SVG HORARIO -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+
+                  <path d="M12 7v5l3 3" />
+
+                </svg>
+
+                <p class="p_datos">Horario:</p>
+
+                <p>{{ eventoSeleccionado?.horario }} hs</p>
+
+              </div>
+
+
+              <!-- RESPONSABLE -->
+              <div class="d_div">
+
+                <!-- SVG RESPONSABLE -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor">
+
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                  <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+
+                  <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
+
+                </svg>
+
+                <p class="p_datos">Responsable:</p>
+
+                <p>{{ eventoSeleccionado?.responsable }}</p>
+
+              </div>
+
+
+              <!-- LUGAR -->
+              <div class="d_div">
+
+                <!-- SVG LUGAR -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor">
+
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                  <path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6" />
+
+                </svg>
+
+                <p class="p_datos">Lugar:</p>
+
+                <p>{{ eventoSeleccionado?.lugar }}</p>
+
+              </div>
+
+
+              <!-- DESCRIPCION -->
+              <div class="d_cont_descripcion">
+
+                <div class="d_div">
+
+                  <!-- SVG DESCRIPCION -->
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+
+                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" />
+
+                    <path d="M9 17h6" />
+
+                    <path d="M9 13h6" />
+
+                  </svg>
+
+                  <p class="p_datos">Descripción:</p>
+
+                </div>
+
+                <div class="Descripcion">
+
+                  <p>
+                    {{ eventoSeleccionado?.descripcion }}
+                  </p>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- PÁGINA DEL ADMINISTRADOR -->
+<div *ngIf="admin">
+
+  <app-menu (volver)="cerrarAdmin()"></app-menu>
+
+</div>

@@ -1,0 +1,29 @@
+[
+  {
+    "nombre": "aaaaaaaa",
+    "fecha": "222222-02-22",
+    "horario": "02:22",
+    "responsable": "2222222222222",
+    "lugar": "22222222222222",
+    "descripcion": "22222222222222222222",
+    "id": 2
+  },
+  {
+    "nombre": "sddssddsdsdfsfd",
+    "fecha": "2222-02-23",
+    "horario": "22:02",
+    "responsable": "234234234",
+    "lugar": "23423423423423",
+    "descripcion": "234234234234",
+    "id": 4
+  },
+  {
+    "nombre": "Encuentro tecnologico",
+    "fecha": "2026-10-09",
+    "horario": "10:00",
+    "responsable": "diego salvetti",
+    "lugar": "Escuela EETP 602",
+    "descripcion": "El Encuentro Tecnológico reúne a estudiantes de escuelas secundarias para compartir conocimientos, experiencias y nuevos aprendizajes. A través de desafíos de robótica, programación, dibujo técnico, saberes matemáticos y muchas otras disciplinas, promovemos la creatividad, la innovación y el trabajo colaborativo.",
+    "id": 5
+  }
+]

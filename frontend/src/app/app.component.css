@@ -1,0 +1,298 @@
+.cont{
+    height: 100vh;
+    width: 100%;
+}
+header{
+    height: 7%;
+    width: 100%;
+    
+    margin: 0;
+}
+nav{
+    background-color: rgb(36, 103, 202);
+    border-bottom: 2px solid black;
+    width: 100%;
+    height: 7%;
+    position: fixed;
+    display: flex;
+    z-index: 100;
+}.cont_titulo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    padding-left: 50px;
+}
+
+.cont_titulo svg{
+    width: 5%;
+    height: 60%;
+    margin-left: -20px;
+    margin-bottom: 7px;
+    color: white;
+}
+
+.cont_titulo p{
+    font-size: 22px;
+    margin: 0;
+    margin-left: 4px;
+}
+.cont_busqueda{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont_login{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+.cont_login button{
+    margin: 10px;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    height: 93%;
+}
+.cont_menu{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(52, 120, 221);
+}
+.menu{
+    position: fixed;
+    top: 7%;
+    width: 20%;
+    height: 93%;
+    background-color: rgb(52, 120, 221);
+}
+.menu div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    color: white;
+    background-color: rgb(52, 120, 221);
+    border: none;
+    font-size: 20px;
+}
+.menu div svg{
+    z-index: 200;
+    margin-left: 20px;
+    margin-right:5px;
+    color: white;
+}
+.menu div:hover{
+    background-color: blue;
+}
+
+/* AUTORIZADO ABAJO DE TODO */
+.autorizado{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.cont_tarjetas{
+    width: 80%;
+    padding: 0px 20px;
+}
+.titulo p{
+    font-size: 25px;
+}
+.cont_menu_login{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+}
+.menu_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border: 2px solid rgb(52, 120, 221);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.629);
+    margin: 0px 20px;
+    margin-top: 7%;
+    border-radius: 10px;
+    padding: 5px;
+}
+.cont_header_menu{
+    border-radius: 10px;
+    width: 100%;
+    margin: 0;
+}
+.cont_b_cerrar{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.cont_b_cerrar button{
+    background-color: rgb(52, 120, 221);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    width: 5%;
+    height: 30px;
+    margin: 0px 5px;
+}
+.cont_b_cerrar button:hover{
+    scale: 1.2;
+}
+.titulo_menu{
+    color: rgb(52, 120, 221);
+    text-align: center;
+    font-size: 25px;
+    text-shadow: 0px 1px 1px  black;
+    
+}
+.titulo_menu p{
+    border-bottom:2px solid rgb(52, 120, 221) ;
+}
+
+.d_menu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+.d_menu input{
+    width: 35%;
+    height: 30px;
+    border: none;
+    border-bottom: 1.5px solid rgb(52, 120, 221);
+}
+.cont_b_menu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-bottom: 5%;
+}
+.cont_b_menu button{
+    text-align: center;
+    width: 35%;
+    height: 45px;
+        color: rgb(52, 120, 221);
+        border-radius: 7px;
+    font-size: 22px;
+    padding-right: 20px;
+    border: 2px solid rgba(52, 120, 221, 0.4);
+}
+.cont_b_menu button:hover{
+    scale: 1.1;
+}
+.cont_mas_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 100%;
+}
+.mas_info{
+    width: 80%;
+    height: 90%;
+    margin: 30px;
+}
+.cont_b_volver button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17%;
+    height: 50px;
+    border-radius: 7px;
+    color: rgb(52, 120, 221);
+    font-size: 22px;
+    padding-right: 20px;
+    border: 2px solid rgba(52, 120, 221, 0.4);
+}
+.titulo_m_i p{
+    font-size: 28px;
+    color: rgba(52, 120, 221);
+}
+.cont_datos{
+    border: 2px solid rgba(1, 10, 23, 0.4);
+    width: 100%;
+    height: 55vh;
+    border-radius: 7px;
+}
+.datos{
+    margin: 20px;
+}
+.d_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.d_div svg{
+    color: rgba(52, 120, 221);
+}
+.d_cont_descripcion{
+    flex-direction: column;
+}
+.p_datos{
+    margin-left: 10px;
+    color: rgba(52, 120, 221);
+    margin-right: 5px;
+    font-size: 18px;
+}
+.descripcion{
+    margin-top: 0px;
+}
+.Descripcion p{
+    margin: 0 5%;
+}
+/* BUSCAR */
+
+.cont_buscar{
+    width: 80%;
+    height: 100%;
+    padding: 0px 20px;
+}
+
+.buscador{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.buscador input{
+    width: 60%;
+    height: 35px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.buscador button{
+    width: 45px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador button svg{
+    width: 22px;
+    height: 22px;
+}
