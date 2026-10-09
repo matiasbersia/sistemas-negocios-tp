@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
   // Carga los eventos generales al iniciar la app
   cargarEventos() {
-    fetch('http://https://sistemas-negocios-tp.onrender.com/eventos')
+    fetch('https://sistemas-negocios-tp.onrender.com/eventos')
       .then(respuesta => respuesta.json())
       .then(datos => {
         this.listaEventos = datos;
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
     }
 
     const url =
-      `http://https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
     fetch(url)
       .then(respuesta => respuesta.json())

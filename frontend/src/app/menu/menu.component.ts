@@ -135,7 +135,7 @@ export class MenuComponent {
 
   crearEvento() {
 
-    fetch('http://https://sistemas-negocios-tp.onrender.com/eventos', {
+    fetch('https://sistemas-negocios-tp.onrender.com/eventos', {
 
       method: 'POST',
 
@@ -211,7 +211,7 @@ export class MenuComponent {
 
 
     const url =
-      `http://https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
 
     console.log('URL que se está consultando:', url);
@@ -274,7 +274,7 @@ export class MenuComponent {
 
 
     fetch(
-      `http://https://sistemas-negocios-tp.onrender.com/eventos/${this.eventoModificar.id}`,
+      `https://sistemas-negocios-tp.onrender.com/eventos/${this.eventoModificar.id}`,
       {
 
         method: 'PUT',
@@ -339,7 +339,7 @@ export class MenuComponent {
     console.log('Borrar evento:', evento);
 
 
-    fetch(`http://https://sistemas-negocios-tp.onrender.com/eventos/${evento.id}`, {
+    fetch(`https://sistemas-negocios-tp.onrender.com/eventos/${evento.id}`, {
 
       method: 'DELETE'
 
@@ -370,7 +370,7 @@ export class MenuComponent {
       if (this.busqueda.trim() !== '') {
 
         return fetch(
-          `http://https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
+          `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
         );
 
       }
@@ -381,7 +381,7 @@ export class MenuComponent {
        * volvemos a cargar todos los eventos.
        */
 
-      return fetch('http://https://sistemas-negocios-tp.onrender.com/eventos');
+      return fetch('https://sistemas-negocios-tp.onrender.com/eventos');
 
     })
 

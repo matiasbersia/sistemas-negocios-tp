@@ -21,7 +21,7 @@ export class TarjetaComponent {
   eventos: any[] = [];
 
   ngOnInit() {
-    fetch('http://https://sistemas-negocios-tp.onrender.com/eventos')
+    fetch('https://sistemas-negocios-tp.onrender.com/eventos')
       .then(respuesta => respuesta.json())
       .then(datos => {
         console.log('Eventos recibidos:', datos);
