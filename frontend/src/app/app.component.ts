@@ -101,15 +101,18 @@ export class AppComponent implements OnInit {
       });
   }
 
-  iniciarSesion() {
-    if (this.usuario == 'admin' && this.contrasena == '12345') {
-      console.log('Inicio de sesión correcto');
-      this.admin = true;
-      this.contador = 0;
-    } else {
-      alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
-    }
+iniciarSesion() {
+  if (
+    (this.usuario == 'admin' && this.contrasena == '12345') ||
+    (this.usuario == 'valen' && this.contrasena == '12345')
+  ) {
+    console.log('Inicio de sesión correcto');
+    this.admin = true;
+    this.contador = 0;
+  } else {
+    alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
   }
+}
 
   cerrarAdmin() {
     this.admin = false;
