@@ -112,7 +112,7 @@ const contrasenaIngresada = this.contrasena.trim();
 
   if (
     (usuarioIngresado === 'admin' && contrasenaIngresada === '12345') ||
-    (usuarioIngresado === 'valen' && contrasenaIngresada === '12345')
+    (usuarioIngresado === 'valentina' && contrasenaIngresada === '12345')
   ) {
     console.log('Inicio de sesión correcto');
     this.admin = true;

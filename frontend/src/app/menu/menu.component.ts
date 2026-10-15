@@ -28,7 +28,7 @@ export class MenuComponent {
   eventoModificar: any = null;
 
   busqueda = '';
-
+  eventoPendienteEliminar: any = null;
   eventosBuscados: any[] | null = null;
 
   nuevoEvento = {
@@ -219,7 +219,21 @@ export class MenuComponent {
     });
   }
 
+confirmarBorrado(evento: any) {
+  this.eventoPendienteEliminar = evento;
+}
 
+cancelarBorrado() {
+  this.eventoPendienteEliminar = null;
+}
+
+aceptarBorrado() {
+  if (this.eventoPendienteEliminar) {
+    const evento = this.eventoPendienteEliminar;
+    this.eventoPendienteEliminar = null;
+    this.borrarEvento(evento);
+  }
+}
   borrarEvento(evento: any) {
     console.log('Borrar evento:', evento);
 

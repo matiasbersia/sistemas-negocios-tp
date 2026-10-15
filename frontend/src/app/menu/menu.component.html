@@ -33,7 +33,37 @@
 </header>
 
   <!-- BARRA LATERAL -->
+  <!-- CONFIRMAR ELIMINACIÓN -->
+<div class="confirmacion_fondo" *ngIf="eventoPendienteEliminar">
 
+  <div class="confirmacion">
+
+    <h2>¿Eliminar actividad?</h2>
+
+    <p>
+      ¿Seguro que querés eliminar
+      <strong>{{ eventoPendienteEliminar.nombre }}</strong>?
+    </p>
+
+    <div class="botones_confirmacion">
+
+      <button
+        class="cancelar"
+        (click)="cancelarBorrado()">
+        Cancelar
+      </button>
+
+      <button
+        class="aceptar"
+        (click)="aceptarBorrado()">
+        Aceptar
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
   <main>
 
     <div class="cont_menu">
@@ -537,9 +567,9 @@
         <div class="tarjetas_modificar">
 
           <app-tarjeta
-            modo="modificar"
+            modo="eliminar"
             [eventosBuscados]="eventosBuscados"
-            (modificar)="modificarEvento($event)">
+            (borrar)="confirmarBorrado($event)">
           </app-tarjeta>
 
         </div>

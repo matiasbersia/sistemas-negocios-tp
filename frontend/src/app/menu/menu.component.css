@@ -69,6 +69,75 @@ nav {
 
 }
 
+
+/* CONFIRMAR ELIMINACIÓN */
+
+.confirmacion_fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.confirmacion {
+    background-color: white;
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid rgb(52, 120, 221);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.confirmacion h2 {
+    color: rgb(52, 120, 221);
+    margin-top: 0;
+}
+
+.confirmacion p {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.botones_confirmacion {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.botones_confirmacion button {
+    width: 120px;
+    height: 42px;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botones_confirmacion .cancelar {
+    background-color: white;
+    color: rgb(52, 120, 221);
+    border: 2px solid rgb(52, 120, 221);
+}
+
+.botones_confirmacion .aceptar {
+    background-color: rgb(52, 120, 221);
+    color: white;
+    border: 2px solid rgb(52, 120, 221);
+}
+
+.botones_confirmacion button:hover {
+    opacity: 0.8;
+}
+
+
 main {
 
     display: flex;

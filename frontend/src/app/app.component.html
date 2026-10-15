@@ -65,7 +65,8 @@
           <input
             type="password"
             [(ngModel)]="contrasena"
-            placeholder="Ingresar Contraseña">
+            placeholder="Ingresar Contraseña"
+            (keyup.enter)="iniciarSesion()">
 
         </div>
 
