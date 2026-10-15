@@ -1,374 +1,246 @@
+
 const fs = require('fs');
 const path = require('path');
 
 const rutaEventos = path.join(__dirname, '..', 'eventos.json');
-
+const rutaTemporal = path.join('/tmp', 'eventos.json');
 
 // =====================================================
-// FUNCIÓN PARA CREAR LA FECHA Y HORA DE UN EVENTO
+// LEER Y GUARDAR EVENTOS
+// =====================================================
+
+const leerEventos = () => {
+    if (fs.existsSync(rutaTemporal)) {
+        return JSON.parse(fs.readFileSync(rutaTemporal, 'utf8'));
+    }
+
+    const datos = fs.readFileSync(rutaEventos, 'utf8');
+    const eventos = JSON.parse(datos);
+
+    fs.writeFileSync(
+        rutaTemporal,
+        JSON.stringify(eventos, null, 2),
+        'utf8'
+    );
+
+    return eventos;
+};
+
+const guardarEventos = (eventos) => {
+    fs.writeFileSync(
+        rutaTemporal,
+        JSON.stringify(eventos, null, 2),
+        'utf8'
+    );
+};
+
+// =====================================================
+// CREAR FECHA Y HORA DE UN EVENTO
 // =====================================================
 
 const crearFecha = (evento) => {
+    if (!evento.fecha) {
+        return new Date(0);
+    }
 
     const [año, mes, dia] = evento.fecha.split('-').map(Number);
-
     let hora = 0;
     let minutos = 0;
 
     if (evento.horario) {
-
         const partesHora = evento.horario.split(':');
-
-        hora = Number(partesHora[0]);
-        minutos = Number(partesHora[1]);
-
+        hora = Number(partesHora[0]) || 0;
+        minutos = Number(partesHora[1]) || 0;
     }
 
-    return new Date(
-        año,
-        mes - 1,
-        dia,
-        hora,
-        minutos
-    );
-
+    return new Date(año, mes - 1, dia, hora, minutos);
 };
 
-
 // =====================================================
-// ELIMINAR AUTOMÁTICAMENTE LOS EVENTOS PASADOS
+// ELIMINAR EVENTOS PASADOS
 // =====================================================
 
 const eliminarEventosPasados = (eventos) => {
-
     const ahora = new Date();
 
-    return eventos.filter(evento => {
-
-        const fechaEvento = crearFecha(evento);
-
-        return fechaEvento >= ahora;
-
-    });
-
+    return eventos.filter(evento => crearFecha(evento) >= ahora);
 };
-
 
 // =====================================================
 // CREAR EVENTO
 // =====================================================
 
 const crearEvento = (req, res) => {
+    try {
+        const nuevoEvento = req.body;
 
-    const nuevoEvento = req.body;
-
-    fs.readFile(rutaEventos, 'utf8', (error, datos) => {
-
-        if (error) {
-
-            return res.status(500).json({
-                mensaje: 'Error al leer eventos.json'
+        if (!nuevoEvento || !nuevoEvento.nombre || !nuevoEvento.fecha) {
+            return res.status(400).json({
+                mensaje: 'Faltan datos obligatorios del evento'
             });
-
         }
 
-        const eventos = JSON.parse(datos);
+        const eventos = leerEventos();
 
-        nuevoEvento.id = eventos.length + 1;
+        const nuevoId = eventos.reduce(
+            (mayor, evento) => Math.max(mayor, Number(evento.id) || 0),
+            0
+        ) + 1;
 
-        eventos.push(nuevoEvento);
+        const eventoCreado = {
+            ...nuevoEvento,
+            id: nuevoId
+        };
 
-        fs.writeFile(
-            rutaEventos,
-            JSON.stringify(eventos, null, 2),
-            (error) => {
+        eventos.push(eventoCreado);
+        guardarEventos(eventos);
 
-                if (error) {
+        return res.status(201).json({
+            mensaje: 'Evento creado correctamente',
+            evento: eventoCreado
+        });
+    } catch (error) {
+        console.error('Error al crear evento:', error);
 
-                    return res.status(500).json({
-                        mensaje: 'Error al guardar el evento'
-                    });
-
-                }
-
-                res.status(201).json({
-                    mensaje: 'Evento creado correctamente',
-                    evento: nuevoEvento
-                });
-
-            }
-        );
-
-    });
-
+        return res.status(500).json({
+            mensaje: 'Error al guardar el evento'
+        });
+    }
 };
-
 
 // =====================================================
 // OBTENER EVENTOS
 // =====================================================
 
 const obtenerEventos = (req, res) => {
-
-    fs.readFile(rutaEventos, 'utf8', (error, datos) => {
-
-        if (error) {
-
-            console.log(error);
-
-            return res.status(500).json({
-                mensaje: 'Error al leer eventos.json'
-            });
-
-        }
-
-        const eventos = JSON.parse(datos);
-
-
-        // Eliminamos los eventos que ya pasaron
-
+    try {
+        const eventos = leerEventos();
         const eventosActualizados = eliminarEventosPasados(eventos);
 
-
-        // Si se eliminó algún evento,
-        // actualizamos eventos.json
-
         if (eventosActualizados.length !== eventos.length) {
-
-            fs.writeFile(
-                rutaEventos,
-                JSON.stringify(eventosActualizados, null, 2),
-                (error) => {
-
-                    if (error) {
-
-                        return res.status(500).json({
-                            mensaje: 'Error al actualizar eventos.json'
-                        });
-
-                    }
-
-                    res.json(eventosActualizados);
-
-                }
-            );
-
-        } else {
-
-            res.json(eventosActualizados);
-
+            guardarEventos(eventosActualizados);
         }
 
-    });
+        return res.json(eventosActualizados);
+    } catch (error) {
+        console.error('Error al obtener eventos:', error);
 
+        return res.status(500).json({
+            mensaje: 'Error al leer los eventos'
+        });
+    }
 };
-
 
 // =====================================================
 // MODIFICAR EVENTO
 // =====================================================
 
 const modificarEvento = (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        const eventos = leerEventos();
 
-    const id = Number(req.params.id);
-
-    const datosModificados = req.body;
-
-    fs.readFile(rutaEventos, 'utf8', (error, datos) => {
-
-        if (error) {
-
-            return res.status(500).json({
-                mensaje: 'Error al leer eventos.json'
-            });
-
-        }
-
-        const eventos = JSON.parse(datos);
-
-        const indice = eventos.findIndex(evento => evento.id === id);
+        const indice = eventos.findIndex(evento => Number(evento.id) === id);
 
         if (indice === -1) {
-
             return res.status(404).json({
                 mensaje: 'Evento no encontrado'
             });
-
         }
 
         eventos[indice] = {
             ...eventos[indice],
-            ...datosModificados,
-            id: id
+            ...req.body,
+            id
         };
 
-        fs.writeFile(
-            rutaEventos,
-            JSON.stringify(eventos, null, 2),
-            (error) => {
+        guardarEventos(eventos);
 
-                if (error) {
+        return res.json({
+            mensaje: 'Evento modificado correctamente',
+            evento: eventos[indice]
+        });
+    } catch (error) {
+        console.error('Error al modificar evento:', error);
 
-                    return res.status(500).json({
-                        mensaje: 'Error al modificar el evento'
-                    });
-
-                }
-
-                res.json({
-                    mensaje: 'Evento modificado correctamente',
-                    evento: eventos[indice]
-                });
-
-            }
-        );
-
-    });
-
+        return res.status(500).json({
+            mensaje: 'Error al modificar el evento'
+        });
+    }
 };
-
 
 // =====================================================
 // ELIMINAR EVENTO MANUALMENTE
 // =====================================================
 
 const eliminarEvento = (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        const eventos = leerEventos();
 
-    const id = Number(req.params.id);
-
-    fs.readFile(rutaEventos, 'utf8', (error, datos) => {
-
-        if (error) {
-
-            return res.status(500).json({
-                mensaje: 'Error al leer eventos.json'
-            });
-
-        }
-
-        const eventos = JSON.parse(datos);
-
-        const indice = eventos.findIndex(evento => evento.id === id);
+        const indice = eventos.findIndex(evento => Number(evento.id) === id);
 
         if (indice === -1) {
-
             return res.status(404).json({
                 mensaje: 'Evento no encontrado'
             });
-
         }
 
         const eventoEliminado = eventos[indice];
 
         eventos.splice(indice, 1);
+        guardarEventos(eventos);
 
-        fs.writeFile(
-            rutaEventos,
-            JSON.stringify(eventos, null, 2),
-            (error) => {
+        return res.json({
+            mensaje: 'Evento eliminado correctamente',
+            evento: eventoEliminado
+        });
+    } catch (error) {
+        console.error('Error al eliminar evento:', error);
 
-                if (error) {
-
-                    return res.status(500).json({
-                        mensaje: 'Error al eliminar el evento'
-                    });
-
-                }
-
-                res.json({
-                    mensaje: 'Evento eliminado correctamente',
-                    evento: eventoEliminado
-                });
-
-            }
-        );
-
-    });
-
+        return res.status(500).json({
+            mensaje: 'Error al eliminar el evento'
+        });
+    }
 };
-
 
 // =====================================================
 // BUSCAR EVENTO
 // =====================================================
 
 const buscarEvento = (req, res) => {
+    try {
+        const nombre = String(req.params.nombre || '').toLowerCase();
 
-    const nombre = req.params.nombre.toLowerCase();
-
-    fs.readFile(rutaEventos, 'utf8', (error, datos) => {
-
-        if (error) {
-
-            return res.status(500).json({
-                mensaje: 'Error al leer eventos.json'
-            });
-
-        }
-
-        const eventos = JSON.parse(datos);
-
-
-        // Primero eliminamos los eventos pasados
-
+        const eventos = leerEventos();
         const eventosActualizados = eliminarEventosPasados(eventos);
 
-
-        // Si se eliminó algún evento,
-        // guardamos el JSON actualizado
-
-        const guardarCambios = () => {
-
-            const resultados = eventosActualizados.filter(evento =>
-                evento.nombre.toLowerCase().includes(nombre)
-            );
-
-            res.json(resultados);
-
-        };
-
-
         if (eventosActualizados.length !== eventos.length) {
-
-            fs.writeFile(
-                rutaEventos,
-                JSON.stringify(eventosActualizados, null, 2),
-                (error) => {
-
-                    if (error) {
-
-                        return res.status(500).json({
-                            mensaje: 'Error al actualizar eventos.json'
-                        });
-
-                    }
-
-                    guardarCambios();
-
-                }
-            );
-
-        } else {
-
-            guardarCambios();
-
+            guardarEventos(eventosActualizados);
         }
 
-    });
+        const resultados = eventosActualizados.filter(evento =>
+            String(evento.nombre || '').toLowerCase().includes(nombre)
+        );
 
+        return res.json(resultados);
+    } catch (error) {
+        console.error('Error al buscar evento:', error);
+
+        return res.status(500).json({
+            mensaje: 'Error al buscar eventos'
+        });
+    }
 };
-
 
 // =====================================================
 // EXPORTAR
 // =====================================================
 
 module.exports = {
-
     crearEvento,
     obtenerEventos,
     modificarEvento,
     eliminarEvento,
     buscarEvento
-
 };
