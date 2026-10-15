@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TarjetaComponent } from './tarjeta/tarjeta.component';
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
 
   // Carga los eventos generales al iniciar la app
   cargarEventos() {
-    fetch('https://sistemas-negocios-tp.onrender.com/eventos')
+    fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos')
       .then(respuesta => respuesta.json())
       .then(datos => {
         this.listaEventos = datos;
@@ -80,20 +81,22 @@ export class AppComponent implements OnInit {
 
   buscarEvento() {
     console.log('Texto buscado:', this.busqueda);
+
     if (this.busqueda.trim() === '') {
       this.eventosBuscados = null;
       return;
     }
 
     const url =
-      `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
     fetch(url)
       .then(respuesta => respuesta.json())
       .then(datos => {
         console.log('Resultados recibidos:', datos);
-        // Filtramos los resultados de la búsqueda para que no muestre los vencidos
-        this.eventosBuscados = datos.filter((evento: any) => this.eventoVigente(evento.fecha));
+        this.eventosBuscados = datos.filter(
+          (evento: any) => this.eventoVigente(evento.fecha)
+        );
       })
       .catch(error => {
         console.error('Error en la búsqueda:', error);
@@ -101,18 +104,18 @@ export class AppComponent implements OnInit {
       });
   }
 
-iniciarSesion() {
-  if (
-    (this.usuario == 'admin' && this.contrasena == '12345') ||
-    (this.usuario == 'valen' && this.contrasena == '12345')
-  ) {
-    console.log('Inicio de sesión correcto');
-    this.admin = true;
-    this.contador = 0;
-  } else {
-    alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
+  iniciarSesion() {
+    if (
+      (this.usuario == 'admin' && this.contrasena == '12345') ||
+      (this.usuario == 'valen' && this.contrasena == '12345')
+    ) {
+      console.log('Inicio de sesión correcto');
+      this.admin = true;
+      this.contador = 0;
+    } else {
+      alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
+    }
   }
-}
 
   cerrarAdmin() {
     this.admin = false;
@@ -124,30 +127,37 @@ iniciarSesion() {
     this.eventosBuscados = null;
   }
 
-  // --- FUNCIÓN PARA VALIDAR SI LA FECHA ESTÁ VIGENTE ---
+  // FUNCIÓN PARA VALIDAR SI LA FECHA ESTÁ VIGENTE
   eventoVigente(fechaEvento: string): boolean {
-    if (!fechaEvento) return true; // Si no tiene fecha, lo dejamos por seguridad
+    if (!fechaEvento) return true;
 
     const hoy = new Date();
-    hoy.setHours(0, 0, 0, 0); // Reseteamos las horas para comparar solo días
+    hoy.setHours(0, 0, 0, 0);
 
-    // Asume formato 'DD/MM/YYYY' (ej: '09/10/2026')
+    // Acepta fechas en formato DD/MM/YYYY o YYYY-MM-DD
     const partes = fechaEvento.split('/');
-    if (partes.length !== 3) return true;
 
-    const dia = Number(partes[0]);
-    const mes = Number(partes[1]) - 1; // Los meses en JS van de 0 a 11
-    const anio = Number(partes[2]);
+    let fechaParsed: Date;
 
-    const fechaParsed = new Date(anio, mes, dia);
+    if (partes.length === 3) {
+      const dia = Number(partes[0]);
+      const mes = Number(partes[1]) - 1;
+      const anio = Number(partes[2]);
+      fechaParsed = new Date(anio, mes, dia);
+    } else {
+      fechaParsed = new Date(fechaEvento + 'T00:00:00');
+    }
 
-    // Retorna true si la fecha del evento es hoy o en el futuro
-    // Retorna false si la fecha ya pasó
+    if (isNaN(fechaParsed.getTime())) return true;
+
+    fechaParsed.setHours(0, 0, 0, 0);
     return fechaParsed >= hoy;
   }
 
-  // Getter para obtener solo los eventos que no han expirado en la lista principal
+  // Getter para obtener solo los eventos que no han expirado
   get eventosVigentes() {
-    return this.listaEventos.filter(evento => this.eventoVigente(evento.fecha));
+    return this.listaEventos.filter(
+      evento => this.eventoVigente(evento.fecha)
+    );
   }
 }
