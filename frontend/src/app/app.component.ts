@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
   }
 
   buscarEvento() {
+    
     console.log('Texto buscado:', this.busqueda);
 
     if (this.busqueda.trim() === '') {
@@ -104,18 +105,23 @@ export class AppComponent implements OnInit {
       });
   }
 
-  iniciarSesion() {
-    if (
-      (this.usuario == 'admin' && this.contrasena == '12345') ||
-      (this.usuario == 'valen' && this.contrasena == '12345')
-    ) {
-      console.log('Inicio de sesión correcto');
-      this.admin = true;
-      this.contador = 0;
-    } else {
-      alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
-    }
+
+iniciarSesion() {
+  const usuarioIngresado = this.usuario.trim().toLowerCase();
+const contrasenaIngresada = this.contrasena.trim();
+
+  if (
+    (usuarioIngresado === 'admin' && contrasenaIngresada === '12345') ||
+    (usuarioIngresado === 'valen' && contrasenaIngresada === '12345')
+  ) {
+    console.log('Inicio de sesión correcto');
+    this.admin = true;
+    this.contador = 0;
+  } else {
+    alert('Cuenta incorrecta. Verifique el usuario y la contraseña.');
   }
+}
+
 
   cerrarAdmin() {
     this.admin = false;
