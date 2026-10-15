@@ -6,53 +6,48 @@
 
 }
 
+
 header {
-
     height: 7%;
-
     width: 100%;
-
     margin: 0;
-
 }
 
 nav {
-
-    background-color: white;
-
+    background-color: rgb(36, 103, 202);
     border-bottom: 2px solid black;
-
     width: 100%;
-
     height: 7%;
-
     position: fixed;
-
     display: flex;
-
     z-index: 100;
-
 }
 
 .cont_titulo {
-
     display: flex;
-
     justify-content: start;
-
     align-items: center;
-
     width: 60%;
-
     height: 100%;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    padding-left: 50px;
+}
 
+.cont_titulo svg {
+    width: 5%;
+    height: 60%;
+    margin-left: -20px;
+    margin-bottom: 7px;
+    color: white;
 }
 
 .cont_titulo p {
-
-    margin-left: 15px;
-
+    font-size: 22px;
+    margin: 0;
+    margin-left: 4px;
 }
+
 
 .cont_login {
 
