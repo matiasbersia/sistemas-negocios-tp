@@ -100,7 +100,7 @@ export class MenuComponent {
 
 
   crearEvento() {
-    fetch('https://sistemas-negocios-tp.onrender.com/eventos', {
+    fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -145,7 +145,7 @@ export class MenuComponent {
     }
 
     const url =
-      `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
     console.log('URL que se está consultando:', url);
 
@@ -188,7 +188,7 @@ export class MenuComponent {
     }
 
     fetch(
-      `https://sistemas-negocios-tp.onrender.com/eventos/${this.eventoModificar.id}`,
+      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/${this.eventoModificar.id}`,
       {
         method: 'PUT',
         headers: {
@@ -244,7 +244,7 @@ export class MenuComponent {
   borrarEvento(evento: any) {
     console.log('Borrar evento:', evento);
 
-    fetch(`https://sistemas-negocios-tp.onrender.com/eventos/${evento.id}`, {
+    fetch(`https://sistemas-negocios-tp-zexg.vercel.app/eventos/${evento.id}`, {
       method: 'DELETE'
     })
     .then(respuesta => {
@@ -258,11 +258,11 @@ export class MenuComponent {
 
       if (this.busqueda.trim() !== '') {
         return fetch(
-          `https://sistemas-negocios-tp.onrender.com/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
+          `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
         );
       }
 
-      return fetch('https://sistemas-negocios-tp.onrender.com/eventos');
+      return fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos');
     })
     .then(respuesta => {
       if (!respuesta.ok) {

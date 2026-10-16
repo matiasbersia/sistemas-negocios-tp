@@ -25,7 +25,7 @@ export class TarjetaComponent {
 }
 
 cargarEventos() {
-  fetch('https://sistemas-negocios-tp.onrender.com/eventos')
+  fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos')
     .then(respuesta => {
       if (!respuesta.ok) {
         throw new Error('Error al obtener los eventos');
