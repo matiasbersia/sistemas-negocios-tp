@@ -25,7 +25,7 @@ export class TarjetaComponent {
 }
 
 cargarEventos() {
-  fetch('http://localhost:3000/eventos')
+  fetch('https://sistemas-negocios-tp.onrender.com/eventos')
     .then(respuesta => {
       if (!respuesta.ok) {
         throw new Error('Error al obtener los eventos');
