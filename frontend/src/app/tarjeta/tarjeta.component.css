@@ -226,13 +226,14 @@
 
 .cont_datos > p:not(:first-child) {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 5px;
     font-size: 14px;
     line-height: 1.4;
-    margin: 8px 0;
-    overflow-wrap: anywhere;
+    margin: 6px 0;
+    min-width: 0;
 }
 
 .cont_datos > p svg {
@@ -241,6 +242,25 @@
     flex-shrink: 0;
 }
 
+.cont_datos > p:not(:first-child) {
+    overflow-wrap: anywhere;
+}
+
+.cont_datos > p:nth-child(2) {
+    display: flow-root;
+}
+
+.cont_datos > p:nth-child(2) svg:first-of-type {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cont_datos > p:nth-child(2) svg:nth-of-type(2) {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0px;
+    clear: both;
+}
 
     .cont_boton {
         width: 50px;
