@@ -243,13 +243,15 @@ main{
     border-radius: 7px;
 }
 .datos{
+    
     margin: 20px;
 }
 .d_div{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 0px;
+    margin: 0px;
+    gap: 0;
 }
 .d_div svg{
     color: rgba(52, 120, 221);
@@ -577,7 +579,6 @@ main{
         flex-wrap: wrap;
         align-items: center;
         gap: 5px;
-        margin-bottom: 10px;
     }
 
     .d_div svg {
