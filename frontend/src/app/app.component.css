@@ -150,6 +150,9 @@ main{
     width: 5%;
     height: 30px;
     margin: 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cont_b_cerrar button:hover{
     scale: 1.2;
@@ -608,6 +611,7 @@ main{
         align-items: center;
         overflow-y: auto;
     }
+    
 
     .menu_login {
         width: 100%;
