@@ -390,7 +390,7 @@ main {
 
     width: 100%;
 
-    height: 55vh;
+    height: 65vh;
 
 }
 
@@ -636,4 +636,446 @@ main {
 
     width: 100%;
 
+}
+
+
+/* ============================== */
+/* RESPONSIVE PARA TABLETS */
+/* ============================== */
+
+@media (max-width: 900px) {
+
+    .cont_inicio,
+    .cont_modificar {
+        width: 78%;
+        min-width: 0;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .cont_crear {
+        width: 78%;
+        min-width: 0;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .crear_evento {
+        width: 90%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .dato_crear label {
+        width: 120px;
+        flex-shrink: 0;
+        font-size: 16px;
+    }
+
+    .dato_crear input,
+    .dato_crear textarea {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .cont_mas_info {
+        width: 78%;
+        min-width: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .mas_info {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .cont_b_volver button {
+        width: auto;
+        min-width: 100px;
+        padding: 5px 12px;
+        font-size: 18px;
+    }
+
+    .menu_login {
+        width: 70%;
+        box-sizing: border-box;
+    }
+
+    .cont_b_cerrar button {
+        min-width: 35px;
+    }
+
+    .boton_crear button {
+        width: 40%;
+        margin: 0 3%;
+    }
+}
+
+
+/* ============================== */
+/* RESPONSIVE PARA CELULARES */
+/* ============================== */
+
+@media (max-width: 600px) {
+
+    .cont {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        overflow-x: hidden;
+    }
+
+    header,
+    nav {
+        height: 60px;
+    }
+
+    .cont_titulo {
+        width: 70%;
+        min-width: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+        gap: 5px;
+    }
+
+    .cont_titulo svg {
+        width: 25px;
+        min-width: 25px;
+        height: 25px;
+        margin: 0;
+    }
+
+    .cont_titulo p {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .cont_login {
+        width: 30%;
+        min-width: 0;
+    }
+
+    .cont_login button {
+        margin: 4px;
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    main {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 60px);
+    }
+
+    /* Menú lateral convertido en barra superior */
+
+    .cont_menu {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .menu {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .menu div {
+        flex: 1;
+        min-width: 0;
+        min-height: 60px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        font-size: 12px;
+    }
+
+    .menu div svg {
+        width: 22px;
+        height: 22px;
+        margin: 0;
+    }
+
+    .menu div p {
+        margin: 0;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .salir {
+        position: static;
+    }
+
+    /* Inicio y listado de eventos */
+
+    .cont_inicio,
+    .cont_modificar {
+        width: 100%;
+        height: auto;
+        padding: 0 12px 20px;
+        box-sizing: border-box;
+    }
+
+    .header_tarjetas,
+    .lista_modificar,
+    .tarjetas_modificar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .titulo p,
+    .lista_modificar .titulo p {
+        font-size: 21px;
+    }
+
+    /* Crear evento */
+
+    .cont_crear {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 15px 12px 25px;
+        box-sizing: border-box;
+        align-items: flex-start;
+    }
+
+    .crear_evento {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .titulo_crear {
+        font-size: 23px;
+    }
+
+    .dato_crear {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .dato_crear label {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .dato_crear input,
+    .dato_crear textarea {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .dato_crear input {
+        height: 40px;
+    }
+
+    .dato_crear textarea {
+        height: 110px;
+    }
+
+    .boton_crear {
+        gap: 10px;
+    }
+
+    .boton_crear button {
+        width: 50%;
+        min-width: 0;
+        height: auto;
+        min-height: 44px;
+        margin: 0;
+        padding: 8px 5px;
+        font-size: 15px;
+    }
+
+    /* Buscador de eventos */
+
+    .buscador_modificar {
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .buscador_modificar input {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .buscador_modificar button {
+        flex-shrink: 0;
+        width: 42px;
+    }
+
+    /* Más información */
+
+    .cont_mas_info {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 12px;
+        box-sizing: border-box;
+        align-items: flex-start;
+    }
+
+    .mas_info {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .cont_b_volver button {
+        width: auto;
+        min-width: 100px;
+        min-height: 42px;
+        height: auto;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .titulo_m_i p {
+        font-size: 23px;
+        overflow-wrap: anywhere;
+    }
+
+    .cont_datos {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        box-sizing: border-box;
+        padding: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .datos {
+        margin: 5px;
+    }
+
+    .d_div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .p_datos {
+        font-size: 16px;
+    }
+
+    .Descripcion p {
+        margin: 5px 0;
+        overflow-wrap: anywhere;
+    }
+
+    /* Ventana de inicio de sesión */
+
+    .cont_menu_login {
+        padding: 12px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    .menu_login {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        min-height: 300px;
+        margin: 10px 0;
+        padding: 12px;
+        gap: 18px;
+        box-sizing: border-box;
+    }
+
+    .cont_b_cerrar button {
+        width: 35px;
+        min-width: 35px;
+        height: 35px;
+    }
+
+    .titulo_menu {
+        font-size: 20px;
+    }
+
+    .d_menu {
+        width: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .d_menu input {
+        width: 100%;
+        min-width: 0;
+        height: 40px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .cont_b_menu {
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .cont_b_menu button {
+        width: 50%;
+        min-width: 0;
+        height: auto;
+        min-height: 44px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    /* Confirmación de eliminación */
+
+    .confirmacion_fondo {
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .confirmacion {
+        width: 100%;
+        max-width: 400px;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .confirmacion h2 {
+        font-size: 21px;
+    }
+
+    .confirmacion p {
+        font-size: 16px;
+    }
+
+    .botones_confirmacion {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .botones_confirmacion button {
+        flex: 1;
+        min-width: 100px;
+        width: auto;
+        min-height: 44px;
+    }
+
+    /* Evitar desbordes */
+
+    input,
+    textarea,
+    button {
+        max-width: 100%;
+    }
 }

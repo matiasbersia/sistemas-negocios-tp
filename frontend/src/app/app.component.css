@@ -209,7 +209,7 @@ main{
 .mas_info{
     width: 80%;
     height: 90%;
-    margin: 30px;
+    margin: 0px;
 }
 .cont_b_volver button{
     display: flex;
@@ -230,7 +230,7 @@ main{
 .cont_datos{
     border: 2px solid rgba(1, 10, 23, 0.4);
     width: 100%;
-    height: 55vh;
+    height: 65vh;
     border-radius: 7px;
 }
 .datos{
@@ -295,4 +295,380 @@ main{
 .buscador button svg{
     width: 22px;
     height: 22px;
+}
+
+
+
+/* ============================== */
+/* RESPONSIVE PARA TABLETS */
+/* ============================== */
+
+@media (max-width: 900px) {
+
+    .cont_titulo {
+        width: 100%;
+        padding-left: 25px;
+    }
+
+    .cont_titulo svg {
+        width: 25px;
+        min-width: 25px;
+        height: 25px;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .cont_menu {
+        width: 22%;
+    }
+
+    .menu {
+        width: 22%;
+    }
+
+    .menu div {
+        font-size: 16px;
+    }
+
+    .menu div svg {
+        margin-left: 10px;
+        margin-right: 5px;
+        min-width: 22px;
+    }
+
+    .cont_tarjetas,
+    .cont_buscar {
+        width: 78%;
+        min-width: 0;
+        padding: 0 12px;
+    }
+
+    .cont_mas_info {
+        width: 78%;
+        min-width: 0;
+        padding: 10px;
+    }
+
+    .mas_info {
+        width: 100%;
+    }
+
+    .cont_datos {
+        height: auto;
+        min-height: 65vh;
+        padding: 10px;
+    }
+
+    .datos {
+        margin: 10px;
+    }
+
+    .cont_b_volver button {
+        width: auto;
+        min-width: 100px;
+        padding: 5px 12px;
+    }
+
+    .menu_login {
+        width: 70%;
+    }
+
+    .d_menu input {
+        width: 60%;
+    }
+
+    .cont_b_cerrar button {
+        width: 35px;
+    }
+
+
+
+/* ============================== */
+/* RESPONSIVE PARA CELULARES */
+/* ============================== */
+
+@media (max-width: 600px) {
+
+    .cont {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        overflow-x: hidden;
+    }
+
+    header {
+        height: 60px;
+    }
+
+    nav {
+        height: 60px;
+    }
+
+    .cont_titulo {
+        width: 100%;
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .cont_titulo svg {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+        margin: 0;
+    }
+
+    .cont_titulo p {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    main {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 60px);
+    }
+
+    /* Menú lateral convertido en barra superior */
+
+    .cont_menu {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .menu {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .menu div {
+        flex: 1;
+        min-width: 0;
+        min-height: 60px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .menu div svg {
+        width: 22px;
+        height: 22px;
+        margin: 0;
+    }
+
+    .menu div p {
+        margin: 0;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .autorizado {
+        position: static;
+    }
+
+    /* Listado de actividades */
+
+    .cont_tarjetas,
+    .cont_buscar {
+        width: 100%;
+        padding: 0 12px 20px;
+    }
+
+    .titulo p {
+        font-size: 21px;
+    }
+
+    /* Buscador */
+
+    .buscador {
+        width: 100%;
+        gap: 6px;
+        margin-top: 12px;
+    }
+
+    .buscador input {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+        font-size: 16px;
+    }
+
+    .buscador button {
+        flex-shrink: 0;
+        width: 42px;
+    }
+
+    /* Detalle de actividad */
+
+    .cont_mas_info {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 12px;
+        align-items: flex-start;
+    }
+
+    .mas_info {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .header_mas_info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .cont_b_volver {
+        width: 100%;
+    }
+
+    .cont_b_volver button {
+        width: auto;
+        min-width: 100px;
+        height: 42px;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+    .titulo_m_i {
+        width: 100%;
+    }
+
+    .titulo_m_i p {
+        font-size: 23px;
+        overflow-wrap: anywhere;
+    }
+
+    .cont_datos {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .datos {
+        margin: 5px;
+    }
+
+    .d_div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .d_div svg {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    .p_datos {
+        margin: 0 4px 0 2px;
+        font-size: 16px;
+    }
+
+    .d_div p {
+        overflow-wrap: anywhere;
+    }
+
+    .d_cont_descripcion {
+        width: 100%;
+    }
+
+    .Descripcion {
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .Descripcion p {
+        margin: 5px 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    /* Ventana de inicio de sesión */
+
+    .cont_menu_login {
+        padding: 12px;
+        align-items: center;
+        overflow-y: auto;
+    }
+
+    .menu_login {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        min-height: 300px;
+        margin: 0;
+        padding: 12px;
+        gap: 18px;
+    }
+
+    .cont_header_menu {
+        flex-shrink: 0;
+    }
+
+    .cont_b_cerrar button {
+        width: 35px;
+        height: 35px;
+    }
+
+    .titulo_menu {
+        font-size: 20px;
+    }
+
+    .d_menu {
+        width: 100%;
+    }
+
+    .d_menu input {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .cont_b_menu {
+        margin-bottom: 5px;
+    }
+
+    .cont_b_menu button {
+        width: 80%;
+        min-height: 44px;
+        height: auto;
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    /* Evitar desbordes horizontales */
+
+    input,
+    textarea,
+    button {
+        max-width: 100%;
+    }
+
+    .cont_tarjetas,
+    .cont_buscar,
+    .cont_mas_info,
+    .cont_datos,
+    .mas_info {
+        box-sizing: border-box;
+        min-width: 0;
+    }
+}
 }

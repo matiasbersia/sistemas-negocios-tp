@@ -21,16 +21,26 @@ export class TarjetaComponent {
   eventos: any[] = [];
 
   ngOnInit() {
-    fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos')
-      .then(respuesta => respuesta.json())
-      .then(datos => {
-        console.log('Eventos recibidos:', datos);
-        this.eventos = datos;
-      })
-      .catch(error => {
-        console.error('Error al obtener los eventos:', error);
-      });
-  }
+  this.cargarEventos();
+}
+
+cargarEventos() {
+  fetch('http://localhost:3000/eventos')
+    .then(respuesta => {
+      if (!respuesta.ok) {
+        throw new Error('Error al obtener los eventos');
+      }
+
+      return respuesta.json();
+    })
+    .then(datos => {
+      console.log('Eventos recibidos:', datos);
+      this.eventos = datos;
+    })
+    .catch(error => {
+      console.error('Error al obtener los eventos:', error);
+    });
+}
 
   get listaEventos() {
     /*

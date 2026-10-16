@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
   // Carga los eventos generales al iniciar la app
   cargarEventos() {
-    fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos')
+    fetch('http://localhost:3000/eventos')
       .then(respuesta => respuesta.json())
       .then(datos => {
         this.listaEventos = datos;
@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
     }
 
     const url =
-      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `http://localhost:3000/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
     fetch(url)
       .then(respuesta => respuesta.json())
@@ -112,7 +112,8 @@ const contrasenaIngresada = this.contrasena.trim();
 
   if (
     (usuarioIngresado === 'admin' && contrasenaIngresada === '12345') ||
-    (usuarioIngresado === 'valentina' && contrasenaIngresada === '12345')
+    (usuarioIngresado === 'valentina' && contrasenaIngresada === '12345')||
+    (usuarioIngresado === 'valen' && contrasenaIngresada === '12345')
   ) {
     console.log('Inicio de sesión correcto');
     this.admin = true;

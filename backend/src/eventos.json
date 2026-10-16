@@ -1,4 +1,3 @@
-
 [
   {
     "nombre": "Encuentro tecnologico",
@@ -6,6 +5,7 @@
     "horario": "09:00",
     "responsable": "diego salvetti",
     "lugar": "Escuela 602",
+    "personas": "Todos",
     "descripcion": "El Encuentro Tecnológico reúne a estudiantes de escuelas secundarias para compartir conocimientos, experiencias y nuevos aprendizajes. A través de desafíos de robótica, programación, dibujo técnico, saberes matemáticos y muchas otras disciplinas, promovemos la creatividad, la innovación y el trabajo colaborativo.",
     "id": 1
   },
@@ -15,6 +15,7 @@
     "horario": "10:00",
     "responsable": "CUDAIO - Organismo público",
     "lugar": "Escuela 602",
+    "personas": "Todos",
     "descripcion": "Jornada de donación voluntaria de sangre organizada para promover la solidaridad y concientizar sobre la importancia de donar. La escuela brindará el espacio del aula 602 para recibir a las personas inscriptas, donde el personal de salud realizará las extracciones correspondientes y brindará información sobre el procedimiento.",
     "id": 2
   },
@@ -24,6 +25,7 @@
     "horario": "16:00",
     "responsable": "nicolas burgos",
     "lugar": "centro cultural",
+    "personas": "Solo Estudiantes",
     "descripcion": "Charla introductoria sobre la inteligencia artificial y su aplicación en la educación, la industria y la vida cotidiana. Se presentarán ejemplos de herramientas actuales y se abrirá un espacio para preguntas e intercambio de opiniones.",
     "id": 3
   },
@@ -33,6 +35,7 @@
     "horario": "14:00",
     "responsable": "diego salvetti",
     "lugar": "Escuela 602",
+    "personas": "Todos",
     "descripcion": "Campaña de recolección de alimentos no perecederos destinada a colaborar con organizaciones comunitarias. La comunidad educativa podrá acercar donaciones durante la jornada, que luego serán clasificadas y preparadas para su entrega.",
     "id": 4
   }

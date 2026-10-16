@@ -380,8 +380,16 @@
               <p>{{ eventoSeleccionado?.lugar }}</p>
 
             </div>
+            
+            <!-- Pueden asistir -->
 
+<div class="d_div">
 
+  <p class="p_datos">Pueden asistir:</p>
+
+  <p>{{ eventoSeleccionado?.personas }}</p>
+
+</div>
             <!-- DESCRIPCION -->
 
             <div class="d_cont_descripcion">
@@ -493,6 +501,16 @@
             [(ngModel)]="nuevoEvento.lugar">
 
         </div>
+        <div class="dato_crear">
+
+  <label>Pueden asistir:</label>
+
+  <input
+    type="text"
+    placeholder="Ej.: Todos o Estudiantes"
+    [(ngModel)]="nuevoEvento.personas">
+
+</div>
 
         <div class="dato_crear">
 
@@ -531,7 +549,8 @@
           type="text"
           placeholder="Buscar actividad"
           [(ngModel)]="busqueda"
-          (keyup.enter)="buscarEvento()">
+          (keyup.enter)="buscarEvento()"
+          >
 
         <button (click)="buscarEvento()">
 
@@ -566,11 +585,18 @@
 
         <div class="tarjetas_modificar">
 
-          <app-tarjeta
-            modo="eliminar"
-            [eventosBuscados]="eventosBuscados"
-            (borrar)="confirmarBorrado($event)">
-          </app-tarjeta>
+          <!-- Asegurate de tener esto en tu HTML cuando estás en la sección de modificar -->
+<app-tarjeta 
+  *ngIf="pagina === 'modificar'"
+  modo="modificar" 
+  [eventosBuscados]="eventosBuscados"
+  (modificar)="modificarEvento($event)">
+</app-tarjeta>
+
+<!-- Y más abajo, el contenedor del formulario que depende de que eventoModificar tenga datos -->
+<div *ngIf="eventoModificar">
+  <!-- Inputs de tu formulario con ngModel apuntando a eventoModificar.nombre, etc. -->
+</div>
 
         </div>
 
@@ -649,7 +675,17 @@
             [(ngModel)]="eventoModificar.lugar">
 
         </div>
+        <div class="dato_crear">
+          
 
+  <label>Pueden asistir:</label>
+
+  <input
+    type="text"
+    placeholder="Ej.: Todos o Estudiantes"
+    [(ngModel)]="eventoModificar.personas">
+
+</div>
 
         <div class="dato_crear">
 
@@ -731,7 +767,7 @@
           <app-tarjeta
             modo="eliminar"
             [eventosBuscados]="eventosBuscados"
-            (borrar)="borrarEvento($event)">
+            (borrar)="confirmarBorrado($event)">
           </app-tarjeta>
 
         </div>

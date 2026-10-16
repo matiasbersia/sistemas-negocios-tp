@@ -37,6 +37,7 @@ export class MenuComponent {
     horario: '',
     responsable: '',
     lugar: '',
+    personas: '',
     descripcion: ''
   };
 
@@ -99,7 +100,7 @@ export class MenuComponent {
 
 
   crearEvento() {
-    fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos', {
+    fetch('http://localhost:3000/eventos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -122,6 +123,7 @@ export class MenuComponent {
         horario: '',
         responsable: '',
         lugar: '',
+        personas: '',
         descripcion: ''
       };
     })
@@ -143,7 +145,7 @@ export class MenuComponent {
     }
 
     const url =
-      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
+      `http://localhost:3000/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`;
 
     console.log('URL que se está consultando:', url);
 
@@ -186,7 +188,7 @@ export class MenuComponent {
     }
 
     fetch(
-      `https://sistemas-negocios-tp-zexg.vercel.app/eventos/${this.eventoModificar.id}`,
+      `http://localhost:3000/eventos/${this.eventoModificar.id}`,
       {
         method: 'PUT',
         headers: {
@@ -219,25 +221,30 @@ export class MenuComponent {
     });
   }
 
-confirmarBorrado(evento: any) {
-  this.eventoPendienteEliminar = evento;
-}
 
-cancelarBorrado() {
-  this.eventoPendienteEliminar = null;
-}
-
-aceptarBorrado() {
-  if (this.eventoPendienteEliminar) {
-    const evento = this.eventoPendienteEliminar;
-    this.eventoPendienteEliminar = null;
-    this.borrarEvento(evento);
+  confirmarBorrado(evento: any) {
+    this.eventoPendienteEliminar = evento;
   }
-}
+
+
+  cancelarBorrado() {
+    this.eventoPendienteEliminar = null;
+  }
+
+
+  aceptarBorrado() {
+    if (this.eventoPendienteEliminar) {
+      const evento = this.eventoPendienteEliminar;
+      this.eventoPendienteEliminar = null;
+      this.borrarEvento(evento);
+    }
+  }
+
+
   borrarEvento(evento: any) {
     console.log('Borrar evento:', evento);
 
-    fetch(`https://sistemas-negocios-tp-zexg.vercel.app/eventos/${evento.id}`, {
+    fetch(`http://localhost:3000/eventos/${evento.id}`, {
       method: 'DELETE'
     })
     .then(respuesta => {
@@ -248,15 +255,14 @@ aceptarBorrado() {
     })
     .then(datos => {
       console.log('Evento eliminado:', datos);
-      alert('Evento eliminado correctamente');
 
       if (this.busqueda.trim() !== '') {
         return fetch(
-          `https://sistemas-negocios-tp-zexg.vercel.app/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
+          `http://localhost:3000/eventos/buscar/${encodeURIComponent(this.busqueda.trim())}`
         );
       }
 
-      return fetch('https://sistemas-negocios-tp-zexg.vercel.app/eventos');
+      return fetch('http://localhost:3000/eventos');
     })
     .then(respuesta => {
       if (!respuesta.ok) {

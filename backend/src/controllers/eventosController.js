@@ -1,9 +1,11 @@
 
 const fs = require('fs');
 const path = require('path');
-
 const rutaEventos = path.join(__dirname, '..', 'eventos.json');
-const rutaTemporal = path.join('/tmp', 'eventos.json');
+
+const rutaTemporal = process.env.VERCEL
+    ? path.join('/tmp', 'eventos.json')
+    : path.join(__dirname, '..', 'eventos.json');
 
 // =====================================================
 // LEER Y GUARDAR EVENTOS
