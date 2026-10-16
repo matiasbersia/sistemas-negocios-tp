@@ -6,6 +6,11 @@
 
 }
 
+.p_des{
+    overflow-y: auto;
+    max-height: 100px;
+}
+
 
 header {
     height: 7%;
