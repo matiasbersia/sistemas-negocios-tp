@@ -246,21 +246,7 @@
     overflow-wrap: anywhere;
 }
 
-.cont_datos > p:nth-child(2) {
-    display: flow-root;
-}
 
-.cont_datos > p:nth-child(2) svg:first-of-type {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.cont_datos > p:nth-child(2) svg:nth-of-type(2) {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 0;
-    clear: both;
-}
 
     .cont_boton {
         width: 50px;
