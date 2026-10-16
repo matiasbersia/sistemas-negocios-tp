@@ -6,7 +6,8 @@
 
 .p_des{
     overflow-y: auto;
-    max-height: 90px;
+    max-height: 70px;
+    width: 80%;
 }
 header{
     height: 7%;
