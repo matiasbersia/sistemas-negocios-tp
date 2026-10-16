@@ -246,7 +246,9 @@
     overflow-wrap: anywhere;
 }
 
-
+.cont_datos > p:nth-child(2) svg:nth-of-type(2) {
+    display: none;
+}
 
     .cont_boton {
         width: 50px;
