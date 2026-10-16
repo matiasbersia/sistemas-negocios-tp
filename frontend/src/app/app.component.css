@@ -15,7 +15,7 @@ nav{
     height: 7%;
     position: fixed;
     display: flex;
-    z-index: 100;
+    z-index: 250;
 }.cont_titulo{
     display: flex;
     justify-content: start;
@@ -604,14 +604,14 @@ main{
     /* Ventana de inicio de sesión */
 
     .cont_menu_login {
-        padding: 12px;
+        padding: 0px;
         align-items: center;
         overflow-y: auto;
     }
 
     .menu_login {
         width: 100%;
-        max-width: 400px;
+        max-width: 300px;
         height: auto;
         min-height: 300px;
         margin: 0;

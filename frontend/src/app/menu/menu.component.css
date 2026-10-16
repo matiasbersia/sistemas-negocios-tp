@@ -20,7 +20,7 @@ nav {
     height: 7%;
     position: fixed;
     display: flex;
-    z-index: 100;
+    z-index: 250;
 }
 
 .cont_titulo {
